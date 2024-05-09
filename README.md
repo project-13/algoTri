@@ -1,7 +1,7 @@
 This is an implementation of a time efficient new sorting algorithm "BitSort" for big collections of data (under testing) :
 
 
-Bit Sort is a non-comparative sorting algorithm that operates on integers by considering their individual bits.
+Bit Sort is a non-comparative sorting algorithm that operates on integers by considering their individual bits : it doesn't directly compare elements with each other in the traditional way that comparison-based sorting algorithms like Quicksort or Merge Sort do. Instead, it exploits the bitwise operations and the binary representation of integers to sort them based on their individual bits.
 
 The algorithm sorts the integers based on their binary representation. It iteratively examines each bit position, starting from the most significant bit (MSB) to the least significant bit (LSB). At each iteration, it partitions the array into two groups based on the value of the current bit: those with the bit set (1) and those with the bit unset (0). It then recursively applies the same process to each partition until all bits have been considered.
 
