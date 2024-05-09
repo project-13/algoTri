@@ -9,7 +9,7 @@ BitSort4_1
 Multiprocessing :
 BitSort4_2
 
-Multiprocessing + usage of other sorting algorithm (BitSort4_2, IntroSort, HeapSort, BitSort) depending on the size of the collection :
+Multiprocessing + usage of other sorting algorithms (BitSort4_2, IntroSort, HeapSort, BitSort) depending on the size of the collection :
 BitSort4_2_2_1
 
 Example of a comparaison with quicksort : 
