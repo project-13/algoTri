@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SortingAlgoIncrementalArrayLengthTest",
+      "request": "launch",
+      "mainClass": "src.test.java.org.sortingAlgo.SortingAlgoIncrementalArrayLengthTest",
+      "projectName": "algoTri_339dcd1c"
+    },
+    {
+      "type": "java",
+      "name": "SortingAlgoFixedArrayLengthTest",
+      "request": "launch",
+      "mainClass": "src.test.java.org.sortingAlgo.SortingAlgoFixedArrayLengthTest",
+      "projectName": "algoTri_339dcd1c"
+    },
+    {
+      "type": "java",
       "name": "SortingAlgoTest",
       "request": "launch",
       "mainClass": "src.test.java.org.sortingAlgo.SortingAlgoTest",
