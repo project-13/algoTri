@@ -3,6 +3,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "SortingAlgoTest",
+      "request": "launch",
+      "mainClass": "src.test.java.org.sortingAlgo.SortingAlgoTest",
+      "projectName": "algoTri_339dcd1c"
+    },
+    {
+      "type": "java",
+      "name": "sortingAlgoTest",
+      "request": "launch",
+      "mainClass": "src.test.java.org.sortingAlgo.sortingAlgoTest",
+      "projectName": "algoTri_339dcd1c"
+    },
+    {
+      "type": "java",
       "name": "OptimizedSorting",
       "request": "launch",
       "mainClass": "OptimizedSorting",

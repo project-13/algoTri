@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-import algorithm.SortingAlgorithm;
+import src.main.java.org.sortingAlgo.algorithm.SortingAlgorithm;
 
 public class Helper {
     public static Long[] generateRandomArray(int size) {
