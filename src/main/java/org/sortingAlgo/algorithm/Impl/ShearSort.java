@@ -1,11 +1,6 @@
 package src.main.java.org.sortingAlgo.algorithm.Impl;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 import src.main.java.org.sortingAlgo.algorithm.SortingAlgorithm;
-import src.main.java.org.sortingAlgo.constant.SortingConstants;
 
 @MethodName("shearSort")
 public class ShearSort implements SortingAlgorithm {
@@ -13,52 +8,44 @@ public class ShearSort implements SortingAlgorithm {
     @Override
     public void sort(Long[] arr) {
         int n = arr.length;
-        int row = Math.max(1, (int) Math.sqrt(n));
+        int row = (int) Math.sqrt(n);
         int col = n / row;
 
-        // Sort the rows in parallel
-        ExecutorService rowExecutor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        // Shear sorting
         for (int i = 0; i < row; i++) {
-            int start = i * col;
-            rowExecutor.submit(() -> sortRow(arr, SortingConstants.ORDER, start, col));
-        }
-        rowExecutor.shutdown();
-        try {
-            rowExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
-        // Sort the columns in parallel
-        ExecutorService colExecutor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        for (int i = 0; i < col; i++) {
-            int finalI = i;
-            colExecutor.submit(() -> sortCol(arr, SortingConstants.ORDER, finalI, row, col));
-        }
-        colExecutor.shutdown();
-        try {
-            colExecutor.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
-    private void sortRow(Long[] arr, int order, int start, int length) {
-        for (int i = start; i < start + length - 1; i++) {
-            for (int j = start; j < start + length - i - 1; j++) {
-                if ((arr[j] >> order) > (arr[j + 1] >> order)) {
-                    swap(arr, j, j + 1);
+            // Sort each row
+            for (int j = 0; j < col - 1; j++) {
+                for (int k = 0; k < col - 1 - j; k++) {
+                    if (arr[i * col + k] > arr[i * col + k + 1]) {
+                        swap(arr, i * col + k, i * col + k + 1);
+                    }
                 }
             }
         }
-    }
 
-    private void sortCol(Long[] arr, int order, int col, int row, int colSize) {
-        for (int i = 0; i < row - 1; i++) {
-            for (int j = 0; j < row - i - 1; j++) {
-                if ((arr[j * colSize + col] >> order) > (arr[(j + 1) * colSize + col] >> order)) {
-                    swap(arr, j * colSize + col, (j + 1) * colSize + col);
+        // Transpose the matrix
+        Long[] transposed = new Long[n];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                transposed[j * row + i] = arr[i * col + j];
+            }
+        }
+
+        // Sort the columns
+        for (int i = 0; i < col; i++) {
+            for (int j = 0; j < row - 1; j++) {
+                for (int k = 0; k < row - 1 - j; k++) {
+                    if (transposed[i * row + k] > transposed[i * row + k + 1]) {
+                        swap(transposed, i * row + k, i * row + k + 1);
+                    }
                 }
+            }
+        }
+
+        // Transpose back
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                arr[i * col + j] = transposed[j * row + i];
             }
         }
     }
