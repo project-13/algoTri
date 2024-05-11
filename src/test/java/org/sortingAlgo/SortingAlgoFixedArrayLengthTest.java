@@ -15,6 +15,7 @@ import src.main.java.org.sortingAlgo.algorithm.Impl.JavaSort;
 import src.main.java.org.sortingAlgo.algorithm.Impl.MergeSort;
 import src.main.java.org.sortingAlgo.algorithm.Impl.PdqSort;
 import src.main.java.org.sortingAlgo.algorithm.Impl.QuickSort;
+import src.main.java.org.sortingAlgo.algorithm.Impl.QuickSortMutliThreading;
 import src.main.java.org.sortingAlgo.algorithm.Impl.RadixSort;
 import src.main.java.org.sortingAlgo.algorithm.Impl.RadixSortB;
 import src.main.java.org.sortingAlgo.algorithm.Impl.ShearSort;
@@ -51,13 +52,14 @@ public class SortingAlgoFixedArrayLengthTest {
             //new PdqSort(),//false
             //new RadixSort(),
             //new RadixSortB(),
-            new ShearSort(),//false
+            //new ShearSort(),//false
             //new IntroSort(),
             //new MergeSort(),
             //new TimSort(),
             //new HeapSort(),
             //new JavaSort(),
-            //new QuickSort(),
+            new QuickSort(),
+            new QuickSortMutliThreading(),
     };
 
     public static void main(String args[]) {

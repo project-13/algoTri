@@ -2,6 +2,8 @@ package src.main.java.org.sortingAlgo.algorithm.Impl;
 
 import src.main.java.org.sortingAlgo.algorithm.SortingAlgorithm;
 
+//TODO correction
+
 @MethodName("shearSort")
 public class ShearSort implements SortingAlgorithm {
 
